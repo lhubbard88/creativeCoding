@@ -1,8 +1,11 @@
-## Welcome to GitHub Pages
+## Welcome to Lauren's Projects
 
-You can use the [editor on GitHub](https://github.com/lhubbard88/creativeCoding/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+
+
 ### Projects
 
 TwitterBot
+Actual bot:
 [link](https://twitter.com/HaikusMake)
+Code:
 [link](https://github.com/lhubbard88/creativeCoding/blob/master/Twitterbot)
