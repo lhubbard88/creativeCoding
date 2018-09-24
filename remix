@@ -1,0 +1,25 @@
+import random
+from textblob import TextBlob
+
+#if needed download file from github 
+with open ('fables.txt', 'r') as file:
+    text  = file.read()
+#look up part of speech tags
+blob = TextBlob(text) 
+adjectives = []
+nouns = []
+plural = []
+
+for word, pos in blob.tags:
+    if(pos == 'JJ'):
+        adjectives.append(word)
+    if(pos == "NN"):
+        nouns.append(word)
+    if(pos == 'NNS'):
+        plural.append(word)
+for i in range(8):
+    
+    a = random.choice(adjectives)
+    n = random.choice(nouns)
+    p = random.choice(plural)
+    print('with '+ a +' '+ n + ' comes ' + p)
