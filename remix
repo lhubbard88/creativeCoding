@@ -17,9 +17,12 @@ for word, pos in blob.tags:
         nouns.append(word)
     if(pos == 'NNS'):
         plural.append(word)
+    if(pos == 'VBG'):
+        verbs.append(word)
 for i in range(8):
     
     a = random.choice(adjectives)
     n = random.choice(nouns)
     p = random.choice(plural)
-    print('with '+ a +' '+ n + ' comes ' + p)
+    v = random.choice(verbs)
+    print('with '+ a +' '+ n + ' comes ' + 'v' + ' ' + p)
