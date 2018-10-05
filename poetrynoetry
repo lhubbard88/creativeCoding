@@ -1,0 +1,53 @@
+from textblob import TextBlob
+import random
+import pycorpora
+import pronouncing
+
+#ABAB CDCD EFEF GG
+
+template = """
+Shall I compare thee to a {0}? 
+Thou art more lovely and more {1}.
+Rough winds do shake the darling {2},
+And summer’s lease hath all too {3}.
+Sometime too hot the eye of {4},
+And often is his gold complexion {5};
+And every fair from fair sometime {6},
+By chance, or nature’s changing course, {7};
+But thy eternal summer shall not {8},
+Nor lose possession of that fair {9},
+Nor shall death brag thou wand’rest in his {10},
+When in eternal lines to Time thou {11}.
+     So long as men can breathe, or eyes can see,
+     So long lives this, and this gives life to thee.
+""" 
+
+descriptions = random.choice(pycorpora.humans.descriptions['descriptions'])
+des_rhyme = random.choice(pronouncing.rhymes(descriptions))
+flowers = random.choice(pycorpora.plants.flowers['flowers'])
+flower_rhyme = random.choice(pronouncing.rhymes(flowers))
+greek_gods = random.choice(pycorpora.mythology.greek_gods['greek_gods'])
+gods_rhyme = random.choice(pronouncing.rhymes(greek_gods))
+adjs = random.choice(pycorpora.words.adjs['adjs'])
+adjs_rhyme = random.choice(pronouncing.rhymes(adjs))
+personal_nouns = random.choice(pycorpora.words.personal_nouns['personalNouns'])
+nouns_rhyme = random.choice(pronouncing.rhymes(personal_nouns))
+ergative_verbs = random.choice(pycorpora.words.ergative_verbs['ergative_verbs'])
+verb_rhyme = random.choice(pronouncing.rhymes(ergative_verbs))
+
+print(template.format(
+    flower_rhyme,
+    descriptions,
+    flowers,
+    des_rhyme,
+    greek_gods,
+    adjs_rhyme,
+    gods_rhyme,
+    adjs,
+    ergative_verbs,
+    personal_nouns,
+    verb_rhyme,
+    nouns_rhyme))
+    
+    !pip install pronouncing
+    !pip install pycorpora --install-option="--corpora-zip-url=https://github.com/dariusk/corpora/archive/master.zip"
