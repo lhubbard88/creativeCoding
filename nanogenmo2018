@@ -1,0 +1,38 @@
+!pip install markovify
+
+import markovify
+import random
+
+with open("Myths.txt") as f:
+    text = f.read()
+    
+text_model = markovify.Text(text)
+
+novel = ''
+
+for i in range(1750):
+    novel += text_model.make_sentence()
+    novel += ' '
+    r = random.randint(0,100)
+    if(r < 6):
+        novel += '\n\n'
+        
+!pip install dominate
+!pip install pdfkit
+
+import dominate
+from dominate.tags import*
+import pdfkit
+
+chunked = novel.split('\n\n')
+
+doc = dominate.document(title = 'The New Mythology')
+
+with doc.head:
+    style = ('body {background-color: white; color: black}')
+
+with doc:
+    for c in chunked:
+        p(c)
+
+pdfkit.from_string(str(doc.render()), 'the_new_myths.pdf')
