@@ -1,0 +1,46 @@
+function setup() {
+  createCanvas(425, 425);
+}
+
+function draw() {
+  background(255);
+  
+  var current_hour = hour();
+  var current_minute = minute();
+  var current_second = second();
+  
+  var perhour = hour()/24 * 100;
+  var permin = minute()/60 * 100;
+  var persec = second()/60 * 100;
+   
+
+  fill(225)
+  rect(0, 100, 400, 50);
+ 	fill(10)
+  rect(0, 100, perhour * 4, 50);
+  textSize(32);
+  fill(100, 102, 153)
+	text(perhour + '%', 0, 145);
+  
+  text("through the day", 0, 175);
+  
+  fill(225)
+  rect(0, 200, 400, 50);
+  fill(100)
+  rect(0, 200, permin * 4, 50);
+  textSize(32);
+  fill(100, 10, 15)
+	text(permin + '%', 0, 245);  
+  
+  text('through the hour', 0, 275);
+  
+  fill(225)
+  rect(0, 300, 400, 50);
+  fill(200)
+  rect(0, 300, persec * 4, 50);
+  textSize(32);
+  fill(10, 100, 15)
+	text(persec + '%', 0, 345);
+  
+  text('through the minute', 0, 375);
+}
